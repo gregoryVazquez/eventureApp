@@ -12,7 +12,7 @@ const crypto = require('crypto');
 
 const app = express();
 
-mongoose.Promise = global.Promise;
+
 //use this connection for local connection
 //mongoose.connect('mongodb://localhost/eventuredb');
 
@@ -37,7 +37,7 @@ app.use((req, res, next) => {
     next();
 });
 
-
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB);
 
 
