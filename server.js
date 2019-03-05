@@ -16,6 +16,9 @@ mongoose.Promise = global.Promise;
 //use this connection for local connection
 //mongoose.connect('mongodb://localhost/eventuredb');
 
+app.use(cors());
+app.use(helmet());
+app.use(compression());
 
 app.all('*', function(req, res, next) {
     var origin = req.get('origin'); 
@@ -25,16 +28,6 @@ app.all('*', function(req, res, next) {
     next();
 });
 
-mongoose.connect(process.env.MONGODB);
-
-
-
-require('./passport/passport-local');
-
-app.use(cors());
-app.use(helmet());
-app.use(compression());
-
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -43,6 +36,14 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+
+
+mongoose.connect(process.env.MONGODB);
+
+
+
+require('./passport/passport-local');
+
 
 app.use(express.static('public'));
 app.use(cookieParser());
