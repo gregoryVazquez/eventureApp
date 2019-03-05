@@ -37,9 +37,9 @@ app.use((req, res, next) => {
     next();
 });
 
-mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB);
-
+//mongoose.Promise = global.Promise;
+//mongoose.connect('mongodb+srv://greg:r_AHaQi6:qA2N2k@cluster0-nzhol.mongodb.net/eventure-app?retryWrites=true');
+//process.env.MONGODB
 
 
 require('./passport/passport-local');
