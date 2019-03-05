@@ -14,7 +14,7 @@ const app = express();
 
 
 //use this connection for local connection
-//mongoose.connect('mongodb://localhost/eventuredb');
+mongoose.connect('mongodb://localhost/eventuredb');
 
 app.use(cors());
 app.use(helmet());
@@ -38,7 +38,7 @@ app.use((req, res, next) => {
 });
 
 //mongoose.Promise = global.Promise;
-//mongoose.connect('mongodb+srv://greg:r_AHaQi6:qA2N2k@cluster0-nzhol.mongodb.net/eventure-app?retryWrites=true');
+mongoose.connect(process.env.MONGODB);
 //process.env.MONGODB
 
 
