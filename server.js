@@ -45,7 +45,7 @@ mongoose.connect(process.env.MONGODB);
 require('./passport/passport-local');
 
 
-app.use(express.static('public'));
+app.use(express.static('www'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
